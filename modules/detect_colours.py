@@ -48,7 +48,7 @@ class DetectBlue:
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         # Set upper and lower bounds for colour detection, this is in HSV
-        lower_blue1 = np.array([100, 50, 50])
+        lower_blue1 = np.array([100, 150, 40])
         upper_blue1 = np.array([140, 255, 255])
 
         # Apply the threshold for the colour detection
@@ -62,7 +62,7 @@ class DetectBlue:
         # ============
 
         # Annotate the colour detections
-        contours, mask = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         cv2.drawContours(img, contours, -1, (0, 255, 0), 2)
 
         # Show the annotated detection!
